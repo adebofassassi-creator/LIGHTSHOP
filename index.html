@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LIGHTSHOP - Votre boutique e-commerce moderne">
+  <title>LIGHTSHOP | Boutique en ligne</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+    }
+
+    /* HEADER */
+    header {
+      background: #111;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffd600;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #ffd600;
+    }
+
+    .cart {
+      background: #ffd600;
+      color: #111;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 500px;
+      background: linear-gradient(135deg, #111, #333);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #ffd600;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #ddd;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ffd600;
+      color: #111;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #ffea00;
+    }
+
+    /* SEARCH */
+    .search-section {
+      padding: 35px 7%;
+      background: white;
+      text-align: center;
+    }
+
+    .search-box {
+      width: 70%;
+      max-width: 600px;
+      padding: 15px 20px;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    /* PRODUCTS */
+    .products-section {
+      padding: 60px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #777;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-image {
+      height: 230px;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 70px;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      margin-bottom: 8px;
+    }
+
+    .category {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #111;
+    }
+
+    .add-cart {
+      width: 100%;
+      padding: 12px;
+      background: #111;
+      color: white;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .add-cart:hover {
+      background: #ffd600;
+      color: #111;
+    }
+
+    /* FEATURES */
+    .features {
+      background: #111;
+      color: white;
+      padding: 50px 7%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+
+    .feature {
+      padding: 20px;
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #bbb;
+    }
+
+    /* NEWSLETTER */
+    .newsletter {
+      padding: 70px 20px;
+      text-align: center;
+      background: #ffd600;
+    }
+
+    .newsletter h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .newsletter p {
+      margin-bottom: 25px;
+    }
+
+    .newsletter input {
+      width: 300px;
+      max-width: 90%;
+      padding: 14px;
+      border: none;
+      border-radius: 7px;
+      margin-right: 8px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: white;
+      padding: 40px 7%;
+      text-align: center;
+    }
+
+    footer .logo {
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    footer p {
+      color: #aaa;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .search-box {
+        width: 100%;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .newsletter input {
+        margin: 0 0 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">LIGHTSHOP</div>
+
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#produits">Produits</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="cart">
+      🛒 Panier (<span id="cart-count">0</span>)
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="accueil">
+    <div class="hero-content">
+      <h1>Bienvenue chez <span>LIGHTSHOP</span></h1>
+
+      <p>
+        Découvrez une sélection de produits modernes,
+        élégants et accessibles.
+      </p>
+
+      <a href="#produits" class="btn">Découvrir nos produits</a>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <section class="search-section">
+    <input
+      type="text"
+      id="search"
+      class="search-box"
+      placeholder="🔍 Rechercher un produit..."
+    >
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products-section" id="produits">
+
+    <div class="section-title">
+      <h2>Nos produits</h2>
+      <p>Découvrez nos meilleures ventes</p>
+    </div>
+
+    <div class="products" id="products">
+
+      <article class="product">
+        <div class="product-image">👟</div>
+
+        <div class="product-info">
+          <div class="category">Mode</div>
+          <h3> Sneakers Premium</h3>
+          <div class="price">35 000 FCFA</div>
+
+          <button class="add-cart" onclick="addToCart()">
+            Ajouter au panier
+          </button>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-image">⌚</div>
+
+        <div class="product-info">
+          <div class="category">Accessoires</div>
+          <h3>Montre Smart</h3>
+          <div class="price">25 000 FCFA</div>
+
+          <button class="add-cart" onclick="addToCart()">
+            Ajouter au panier
+          </button>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-image">🎧</div>
+
+        <div class="product-info">
+          <div class="category">Électronique</div>
+          <h3>Casque Bluetooth</h3>
+          <div class="price">18 000 FCFA</div>
+
+          <button class="add-cart" onclick="addToCart()">
+            Ajouter au panier
+          </button>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-image">🎒</div>
+
+        <div class="product-info">
+          <div class="category">Mode</div>
+          <h3>Sac à dos</h3>
+          <div class="price">15 000 FCFA</div>
+
+          <button class="add-cart" onclick="addToCart()">
+            Ajouter au panier
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="features" id="services">
+
+    <div class="feature">
+      <div class="feature-icon">🚚</div>
+      <h3>Livraison rapide</h3>
+      <p>Recevez vos commandes rapidement.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🔒</div>
+      <h3>Paiement sécurisé</h3>
+      <p>Vos paiements sont protégés.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">💬</div>
+      <h3>Support client</h3>
+      <p>Notre équipe est disponible pour vous aider.</p>
+    </div>
+
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h2>Restez informé</h2>
+
+    <p>
+      Inscrivez-vous pour recevoir nos nouveautés et promotions.
+    </p>
+
+    <input
+      type="email"
+      placeholder="Votre adresse email"
+    >
+
+    <button class="btn">
+      S'inscrire
+    </button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="logo">LIGHTSHOP</div>
+
+    <p>
+      © 2026 LIGHTSHOP — Tous droits réservés.
+    </p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    let cartCount = 0;
+
+    function addToCart() {
+      cartCount++;
+
+      document.getElementById("cart-count").textContent = cartCount;
+
+      alert("Produit ajouté au panier !");
+    }
+
+    // Recherche de produits
+    const searchInput = document.getElementById("search");
+    const products = document.querySelectorAll(".product");
+
+    searchInput.addEventListener("input", function () {
+
+      const searchValue = this.value.toLowerCase();
+
+      products.forEach(function(product) {
+
+        const productName =
+          product.querySelector("h3").textContent.toLowerCase();
+
+        const category =
+          product.querySelector(".category").textContent.toLowerCase();
+
+        if (
+          productName.includes(searchValue) ||
+          category.includes(searchValue)
+        ) {
+          product.style.display = "";
+        } else {
+          product.style.display = "none";
+        }
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
